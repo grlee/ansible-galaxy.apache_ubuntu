@@ -1,0 +1,13 @@
+---
+- name: "Install apache 2"
+  apt: pkg={{item}} state=installed
+  sudo: yes
+  with_items:
+  - apache2
+
+- name: Disable apache2 default site
+  command: /usr/sbin/a2dissite 000-default removes=/etc/apache/sites-enabled/000-default
+  sudo: yes  
+
+
+
